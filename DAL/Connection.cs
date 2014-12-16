@@ -12,7 +12,7 @@ namespace DAL
     {
         public static SqlConnection GetConnection()
         {
-            return new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ToString());
+            return new SqlConnection(ConfigurationManager.ConnectionStrings["ExaminationContext"].ToString());
         }
     }
 }

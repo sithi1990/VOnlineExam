@@ -20,19 +20,19 @@ namespace Services
             this.repository = repository;
         }
 
-        public bool Validate(Exam ex)
+        public bool Validate(Examination ex)
         {
            
-            if (ex.ExamName == null || ex.ExamName=="")
+            if (ex.Description == null || ex.Description=="")
                 modelerrors.AddError("ExamName", "Please Enter Exam Name");
-            if(ex.PassMark == 0)
+            if(ex.CutOffMark == 0)
                 modelerrors.AddError("PassMark", "Invalid Pass Mark");
 
             return modelerrors.IsValid;
         }
 
 
-        public void AddNewExam(Exam ex)
+        public void AddNewExam(Examination ex)
         {
            if(this.Validate(ex))
            {
@@ -40,7 +40,7 @@ namespace Services
            }
         }
 
-        public void UpdateExam(Entity.Exam ex)
+        public void UpdateExam(Entity.Examination ex)
         {
             throw new NotImplementedException();
         }

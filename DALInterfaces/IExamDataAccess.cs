@@ -9,9 +9,9 @@ namespace DALInterfaces
 {
     public interface IExamDataAccess
     {
-        void AddNew(Exam ex);
-        void Update(Exam ex);
+        void AddNew(Examination ex);
+        void Update(Examination ex);
         void Delete(int examid);
-        List<Exam> GetExams();
+        IEnumerable<Examination> GetExams();
     }
 }

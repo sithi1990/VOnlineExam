@@ -32,7 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,8 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL-EF\DAL-EF.csproj">
+      <Project>{7bbad2dc-a7f4-4f8c-a471-0e84a65e5b5a}</Project>
+      <Name>DAL-EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL-TEXT\DAL-TEXT.csproj">
       <Project>{cfba7c50-bd15-49ad-a87a-c5c4ecbdc56a}</Project>
       <Name>DAL-TEXT</Name>

@@ -9,9 +9,9 @@ namespace ServiceInterfaces
 {
     public interface IExamService
     {
-        void AddNewExam(Exam ex);
-        void UpdateExam(Exam ex);
+        void AddNewExam(Examination ex);
+        void UpdateExam(Examination ex);
         void DeleteExam(int examid);
-        bool Validate(Exam exam);
+        bool Validate(Examination exam);
     }
 }

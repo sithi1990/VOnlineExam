@@ -14,12 +14,13 @@ namespace DAL
     {
         SqlConnection con = Connection.GetConnection();
 
-        public void AddNew(Exam ex)
+        public void AddNew(Examination ex)
         {
 
-            SqlCommand com = new SqlCommand("sp_add_exam @1,@2", con);
-            com.Parameters.AddWithValue("@1", ex.ExamName);
-            com.Parameters.AddWithValue("@2", ex.PassMark);
+            SqlCommand com = new SqlCommand("sp_add_exam @1,@2,@3", con);
+            com.Parameters.AddWithValue("@1", ex.Description);
+            com.Parameters.AddWithValue("@2", ex.CutOffMark);
+            com.Parameters.AddWithValue("@3", ex.CourseID);
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
@@ -27,12 +28,13 @@ namespace DAL
 
         }
 
-        public void Update(Exam ex)
+        public void Update(Examination ex)
         {
-            SqlCommand com = new SqlCommand("sp_update_exam @1,@2,@3", con);
-            com.Parameters.AddWithValue("@1", ex.ExamID);
-            com.Parameters.AddWithValue("@2", ex.ExamName);
-            com.Parameters.AddWithValue("@3", ex.PassMark);
+            SqlCommand com = new SqlCommand("sp_update_exam @1,@2,@3,@4", con);
+            com.Parameters.AddWithValue("@1", ex.ID);
+            com.Parameters.AddWithValue("@2", ex.Description);
+            com.Parameters.AddWithValue("@3", ex.CutOffMark);
+            com.Parameters.AddWithValue("@4", ex.CourseID);
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
@@ -42,7 +44,7 @@ namespace DAL
 
         public void Delete(int examid)
         {
-            SqlCommand com = new SqlCommand("sp_add_exam @1", con);
+            SqlCommand com = new SqlCommand("sp_delete_exam @1", con);
             com.Parameters.AddWithValue("@1", examid);           
             con.Open();
             com.ExecuteNonQuery();
@@ -67,7 +69,7 @@ namespace DAL
         //}
 
 
-        public List<Exam> GetExams()
+        public IEnumerable<Examination> GetExams()
         {
             throw new NotImplementedException();
         }

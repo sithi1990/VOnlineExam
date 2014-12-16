@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DALInterfaces;
 using DAL;
-using DAL_TEXT;
+
 using ServiceInterfaces;
 using Services;
 using Entity;
@@ -19,23 +19,23 @@ namespace ProSample
         static void Main(string[] args)
         {
             IAppErrors errors=new AppErrors();
-            IExamService service = new ExamService(errors,new ExamRepository()) ;
-            Exam ex = new Exam();
-            ex.ExamName = "";
-            ex.PassMark = 0;
+            IExamService service = new ExamService(errors,new ExamRepository());
+            Examination ex = new Examination();
+            ex.Description = "Data By ADO.NET";
+            ex.CutOffMark = 24;
+            ex.CourseID = 1;
             service.AddNewExam(ex);
 
-           if (errors.IsValid)
+            if (errors.IsValid)
              {
-                 foreach (Error er in errors.GetErrors())
-                  {
-                      Console.WriteLine(er.Value);
-                  }
-                    
+                 Console.WriteLine("Success");
              }
             else
              {
-                 Console.WriteLine("Success");
+                 foreach (Error er in errors.GetErrors())
+                 {
+                     Console.WriteLine(er.Value);
+                 }
              }
              Console.ReadLine();
             
