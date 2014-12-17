@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DALInterfaces;
-using DAL;
+using DAL_EF;
 
 using ServiceInterfaces;
 using Services;
 using Entity;
+using DTO;
 
 namespace ProSample
 {
@@ -20,8 +21,8 @@ namespace ProSample
         {
             IAppErrors errors=new AppErrors();
             IExamService service = new ExamService(errors,new ExamRepository());
-            Examination ex = new Examination();
-            ex.Description = "Data By ADO.NET";
+            ExaminationDTO ex = new ExaminationDTO();
+            ex.Description = "Data By EF";
             ex.CutOffMark = 24;
             ex.CourseID = 1;
             service.AddNewExam(ex);
@@ -37,9 +38,15 @@ namespace ProSample
                      Console.WriteLine(er.Value);
                  }
              }
+
+            IEnumerable<ExaminationDTO> exams = service.GetExams();
+             foreach(var x in exams)
+             {
+                 Console.WriteLine(x.CourseID + "|" + x.Description +"|" +x.CutOffMark);
+             }
              Console.ReadLine();
             
-            
+             
             
         }
     }

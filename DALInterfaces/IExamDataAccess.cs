@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entity;
+using DTO;
 
 namespace DALInterfaces
 {
     public interface IExamDataAccess
     {
-        void AddNew(Examination ex);
-        void Update(Examination ex);
+        void AddNew(ExaminationDTO ex);
+        void Update(ExaminationDTO ex);
         void Delete(int examid);
-        IEnumerable<Examination> GetExams();
+        IEnumerable<ExaminationDTO> GetExams();
     }
 }

@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 using DALInterfaces;
 using Entity;
 using System.Data.Entity;
+using DTO;
+using AutoMapper;
 
 namespace DAL_EF
 {
     public class ExamRepository : IExamDataAccess
     {
         ExaminationContext context = new ExaminationContext();
-        public void AddNew(Examination ex)
+        public void AddNew(ExaminationDTO ex)
         {
-            context.Examinations.Add(ex);
+            
+            context.Examinations.Add(Map(ex));
             context.SaveChanges();
         }
 
-        public void Update(Examination ex)
+        public void Update(ExaminationDTO ex)
         {
-            context.Entry(ex).State = EntityState.Modified;
+            context.Entry(Map(ex)).State = EntityState.Modified;
             context.SaveChanges();
             
         }
@@ -32,11 +35,31 @@ namespace DAL_EF
             context.SaveChanges();
         }
 
-        public IEnumerable<Examination> GetExams()
+        public IEnumerable<ExaminationDTO> GetExams()
         {
-            return context.Examinations.ToList<Examination>();
+            
+            List<Examination> exams= context.Examinations.ToList<Examination>();
+            return Map(exams);
         }
 
+        private Examination Map(ExaminationDTO dto)
+        {
+            Mapper.CreateMap<ExaminationDTO, Examination>();
+            return Mapper.Map<Examination>(dto);
+        }
+
+        private List<ExaminationDTO> Map(List<Examination> entity)
+        {
+            List<ExaminationDTO> dtos = new List<ExaminationDTO>();
+            foreach(var x in entity)
+            {
+                Mapper.CreateMap<Examination, ExaminationDTO>();
+                ExaminationDTO dto = Mapper.Map<ExaminationDTO>(x);
+                dtos.Add(dto);
+            
+            }
+            return dtos;
+        }
 
       
     }

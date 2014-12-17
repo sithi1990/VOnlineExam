@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entity;
-
+using DTO;
 namespace ServiceInterfaces
 {
     public interface IExamService
     {
-        void AddNewExam(Examination ex);
-        void UpdateExam(Examination ex);
-        void DeleteExam(int examid);
-        bool Validate(Examination exam);
+        bool AddNewExam(ExaminationDTO ex);
+        bool UpdateExam(ExaminationDTO ex);
+        bool DeleteExam(int examid);
+        IEnumerable<ExaminationDTO> GetExams();
+        bool Validate(ExaminationDTO exam);
     }
 }

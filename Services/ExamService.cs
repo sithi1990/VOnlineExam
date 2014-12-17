@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ServiceInterfaces;
 using Entity;
 using DALInterfaces;
+using DTO;
 
 namespace Services
 {
@@ -20,7 +21,7 @@ namespace Services
             this.repository = repository;
         }
 
-        public bool Validate(Examination ex)
+        public bool Validate(ExaminationDTO ex)
         {
            
             if (ex.Description == null || ex.Description=="")
@@ -32,25 +33,39 @@ namespace Services
         }
 
 
-        public void AddNewExam(Examination ex)
+        public bool AddNewExam(ExaminationDTO ex)
         {
            if(this.Validate(ex))
            {
                repository.AddNew(ex);
+               return true;
            }
+           return false;
         }
 
-        public void UpdateExam(Entity.Examination ex)
+        public bool UpdateExam(ExaminationDTO ex)
         {
-            throw new NotImplementedException();
+            if (this.Validate(ex))
+            {
+                repository.AddNew(ex);
+                return true;
+            }
+            return false;
         }
 
-        public void DeleteExam(int examid)
+        public bool DeleteExam(int examid)
         {
-            throw new NotImplementedException();
+            repository.Delete(examid);
+            return true;
         }
 
 
-       
+
+
+      
+        public IEnumerable<ExaminationDTO> GetExams()
+        {
+            return repository.GetExams();
+        }
     }
 }

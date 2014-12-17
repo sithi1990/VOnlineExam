@@ -7,6 +7,7 @@ using Entity;
 using System.Data.SqlClient;
 using DALInterfaces;
 using System.Data;
+using DTO;
 
 namespace DAL
 {
@@ -14,7 +15,7 @@ namespace DAL
     {
         SqlConnection con = Connection.GetConnection();
 
-        public void AddNew(Examination ex)
+        public void AddNew(ExaminationDTO ex)
         {
 
             SqlCommand com = new SqlCommand("sp_add_exam @1,@2,@3", con);
@@ -28,7 +29,7 @@ namespace DAL
 
         }
 
-        public void Update(Examination ex)
+        public void Update(ExaminationDTO ex)
         {
             SqlCommand com = new SqlCommand("sp_update_exam @1,@2,@3,@4", con);
             com.Parameters.AddWithValue("@1", ex.ID);
@@ -69,7 +70,7 @@ namespace DAL
         //}
 
 
-        public IEnumerable<Examination> GetExams()
+        public IEnumerable<ExaminationDTO> GetExams()
         {
             throw new NotImplementedException();
         }

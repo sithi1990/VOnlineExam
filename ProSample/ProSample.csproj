@@ -72,6 +72,10 @@
       <Project>{b830116e-35cd-4786-8484-3f4beba5764a}</Project>
       <Name>DAL-SQL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{177a1950-0f56-42d1-a280-f7cfbb041490}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{031e6a44-3333-4090-b4ac-943cd4e6ae3b}</Project>
       <Name>Entity</Name>
