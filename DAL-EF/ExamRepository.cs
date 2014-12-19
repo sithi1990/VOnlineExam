@@ -16,7 +16,6 @@ namespace DAL_EF
         ExaminationContext context = new ExaminationContext();
         public void AddNew(ExaminationDTO ex)
         {
-            
             context.Examinations.Add(Map(ex));
             context.SaveChanges();
         }
@@ -44,6 +43,7 @@ namespace DAL_EF
 
         private Examination Map(ExaminationDTO dto)
         {
+          
             Mapper.CreateMap<ExaminationDTO, Examination>();
             return Mapper.Map<Examination>(dto);
         }

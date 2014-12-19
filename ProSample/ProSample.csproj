@@ -56,29 +56,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL-EF\DAL-EF.csproj">
-      <Project>{7bbad2dc-a7f4-4f8c-a471-0e84a65e5b5a}</Project>
-      <Name>DAL-EF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL-TEXT\DAL-TEXT.csproj">
-      <Project>{cfba7c50-bd15-49ad-a87a-c5c4ecbdc56a}</Project>
-      <Name>DAL-TEXT</Name>
+    <ProjectReference Include="..\DAL-EF1\DAL-EF1.csproj">
+      <Project>{dd85b7f1-86dd-4cb2-b5a8-d01a30b58dbd}</Project>
+      <Name>DAL-EF1</Name>
     </ProjectReference>
     <ProjectReference Include="..\DALInterfaces\DALInterfaces.csproj">
       <Project>{e7745b23-393b-41c6-9a69-296896dc023e}</Project>
       <Name>DALInterfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL-SQL.csproj">
-      <Project>{b830116e-35cd-4786-8484-3f4beba5764a}</Project>
-      <Name>DAL-SQL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{177a1950-0f56-42d1-a280-f7cfbb041490}</Project>
       <Name>DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entity\Entity.csproj">
-      <Project>{031e6a44-3333-4090-b4ac-943cd4e6ae3b}</Project>
-      <Name>Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceInterfaces\ServiceInterfaces.csproj">
       <Project>{c02dd1aa-735d-4fc6-a2ab-002be2b0ea21}</Project>

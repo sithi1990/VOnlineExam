@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DALInterfaces;
-using DAL_EF;
+using DAL_EF1;
 
 using ServiceInterfaces;
 using Services;
-using Entity;
 using DTO;
 
 namespace ProSample
