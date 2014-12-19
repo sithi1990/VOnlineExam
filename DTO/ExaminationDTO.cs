@@ -12,7 +12,7 @@ namespace DTO
     {
         [DataMember]
         public int ID { get; set; }
-        [DataMember]
+        [DataMember]//
         public string Description { get; set; }
         [DataMember]
         public int CutOffMark { get; set; }
